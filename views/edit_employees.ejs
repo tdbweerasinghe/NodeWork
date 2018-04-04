@@ -1,0 +1,66 @@
+<!--Reference (Mentioned with thanks): http://teknosains.com/i/simple-crud-nodejs-mysql
+Edited by Tharindu Weerasinghe-->
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+            
+            <form method="post" action="/employees/edit/<%=data[0].empid%>">
+                <table cellpadding="11">
+                <tr>
+                    <td class="label">Emp ID</td><td>: <input type="int" name="empid" value="<%=data[0].empid%>" required></td>
+                 </tr>
+                <tr>
+                    <td class="label">Name</td><td>: <input type="text" name="name" value="<%=data[0].name%>" required></td>
+                </tr>
+		<tr>
+                    <td class="label">NIC</td><td>: <input type="text" name="nic" value="<%=data[0].nic%>" required></td>
+                </tr>
+		<tr>
+                    <td class="label">Desgnation</td><td>: <input type="text" name="designation" value="<%=data[0].designation%>" required></td>
+                </tr>
+               <tr>
+                    <td class="label" valign="top">Home Address</td>
+                    <td valign="top">: 
+                        <textarea name="homeaddress" required cols="30" rows="5"><%=data[0].homeaddress%></textarea>
+                    </td>
+                </tr>                
+                <tr>
+                    <td class="label">Email</td><td>: <input type="text" value="<%=data[0].email%>" name="email" required></td>
+                 </tr>
+		<tr>
+                   <td class="label">Remaining Leaves</td><td>: <input type="text" value="<%=data[0].leaves%>" name="leaves"></td>
+                 </tr>
+		 <tr>
+                   <td class="label">Expertise</td><td>: <input type="text" value="<%=data[0].expertise%>" name="expertise"></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Phone</td><td>: <input type="text" name="phone" value="<%=data[0].phone%>" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Salary</td><td>: <input type="text" name="salary" value="<%=data[0].salary%>" required></td>
+                 </tr>
+		 <tr>
+                    <td class="label">Resigned Date</td><td>: <input type="date" name="resigneddate" value="<%=data[0].resigneddate%>"></td>
+                 </tr>
+		 <tr>
+                    <td class="label">Joined Date</td><td>: <input type="date" name="joineddate" value="<%=data[0].joineddate%>" required></td>
+                 </tr>
+		 <tr>
+                    <td class="label">Last Date of Increment</td><td>: <input type="date" name="lastincrementdate" value="<%=data[0].lastincrementdate%>" required></td>
+                 </tr>
+		 <tr>
+                    <td class="label">Date of Birth</td><td>: <input type="date" name="dateofbirth" value="<%=data[0].dateofbirth%>" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label"></td>
+                    <td>
+                        &nbsp; <input type="submit" name="submit" value="Save">
+                       <input type="button" name="cancel" value="Cancel" class="cancel" onClick="listEmployees()">
+                    </td>
+                 </tr>
+                </table>
+            </form>
+            
+        </div>
+        
+<%- include layouts/footer.ejs %>

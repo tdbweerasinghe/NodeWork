@@ -1,0 +1,22 @@
+{
+  "name": "SNL-HR-APP",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "ejs": "^1.0.0",
+    "express": "~3.5.3",
+    "express-myconnection": "1.0.4",
+    "jade": "*",
+    "mysql": "2.2.0",
+    "express-session": "~1.15.6",
+    "passport": "~0.4.0",
+    "passport-local": "~1.0.0",
+    "prompt-checkbox": "~2.2.0"
+  },
+  "devDependencies": {
+    "grunt-war": "~0.5.1"
+  }
+}

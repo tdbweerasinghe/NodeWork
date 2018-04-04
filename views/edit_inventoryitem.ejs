@@ -1,0 +1,53 @@
+<!--Reference (Mentioned with thanks): http://teknosains.com/i/simple-crud-nodejs-mysql
+Edited by Tharindu Weerasinghe-->
+<%- include layouts/header.ejs %>
+	<script>
+		function selectItemType() {  			
+    			document.getElementById("invItems").value = "<%=data[0].itemtype%>";
+		}
+	</script>
+
+	<body onload="selectItemType()">
+        <div class="page-data">
+            
+            <form method="post" action="/inventory/edit/<%=data[0].itemid%>">
+                <table cellpadding="11">
+		<tr>
+                    <td class="label">Item ID</td><td>: <input type="text" name="itemid" value="<%=data[0].itemid%>" required></td>
+                 </tr>
+                <tr>
+                    <td class="label">Item Name</td><td>: <input type="text" name="itemname" value="<%=data[0].itemname%>" required></td>
+                 </tr>            
+		 <tr>
+                    <td class="label">Item Type</td><td>: <select id="invItems" name="itemtype" required>
+  								<option value="Laptop">Laptop</option>
+  								<option value="Monitor">Monitor</option>					
+								<option value="HeadSet">HeadSet</option>
+								<option value="Keyboard">Keyboard</option>
+								<option value="Mouse">Mouse</option>
+								<option value="Pen Drive">Pen Drive</option>
+								<option value="HDMI-VGA Converter">HDMI-VGA Converter</option>
+								<option value="Computer Table">Computer Table</option>
+								<option value="Computer Chair">Computer Chair</option>
+								<option value="Mouse Pad">Mouse Pad</option>
+								<option value="Stationery Item">Stationery Item</option>
+								<option value="iPad">iPad</option>
+                                                                <option value="Mobile Phone">Mobile Phone</option>
+							  </select>                    
+                 </tr> 
+		<tr>
+                    <td class="label">Used By</td><td>: <input type="number"  min="0" max="35" name="usedby" value="<%=data[0].usedby%>" ></td>
+                 </tr>
+                 <tr>
+                    <td class="label"></td>
+                    <td>
+                        &nbsp; <input type="submit" name="submit" value="Save">
+                       <input type="button" name="cancel" value="Cancel" class="cancel" onClick="listInvItems()">
+                    </td>
+                 </tr>
+                </table>
+            </form>
+            
+        </div>
+</body>        
+<%- include layouts/footer.ejs %>

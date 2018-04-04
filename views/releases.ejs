@@ -1,0 +1,49 @@
+<!--Created by Tharindu Weerasinghe-->
+
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+         <div class="data-btn">          
+           <button onClick="addRelease();">+ Add New</button>
+	   <button onClick="listProjects();">Go to Projects</button>
+           <button onClick="listInvItems();">Go to Inventory</button>
+           <button onClick="listEmployees();">Go to Employees</button>
+         </div>
+         <div class="data-table">
+            <table border="5" cellpadding="7.5" cellspacing="9">
+                <tr>
+                    <th width="50px">Release ID/Version</th>
+                    <th>Release Date</th>
+                    <th>JIRA Link</th>        
+                    <th width="120px">Action</th>
+                </tr>
+                               
+                <% if(data.length){ 
+                                
+                 for(var i = 0;i < data.length;i++) { %>
+                 
+                <tr>                    
+                    <td><%=data[i].relid%></td>
+                    <td><%=data[i].d%></td>
+		    <td><a href="<%=data[i].releaseinfo%>" target="_blank" ><%=data[i].releaseinfo%></a></td>    
+                    <td>
+                        <a class="a-inside edit" href="../releases/edit/<%=data[i].relid%>">Edit</a>                       
+                        <a class="a-inside delete" href="../releases/delete/<%=data[i].relid%>" onclick="return confirm('Are you sure you want to delete this Release?');" >Delete</a>
+                        
+                    </td>
+                </tr>
+            <% }
+            
+             }else{ %>
+                 <tr>
+                    <td colspan="5">No release as of now!</td>
+                 </tr>
+            <% } %>
+                
+                              
+                
+            </table>
+         </div>
+        </div>
+        
+<%- include layouts/footer.ejs %>

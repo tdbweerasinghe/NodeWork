@@ -1,0 +1,56 @@
+<!--Created by Tharindu Weerasinghe-->
+
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+         <div class="data-btn">          
+           <button onClick="addProject();">+ Add New</button>
+           <button onClick="listInvItems();">Go to Inventory</button>
+           <button onClick="listEmployees();">Go to Employees</button>
+         </div>
+         <div class="data-table">
+            <table border="5" cellpadding="7.5" cellspacing="9">
+                <tr>
+                    <th width="50px">Project ID</th>
+                    <th>Project Name</th>
+                    <th>Project Info</th>
+                    <th>Started Date</th> 
+		    <th>Current State</th>                   
+                    <th width="120px">Action</th>
+                </tr>
+                               
+                <% if(data.length){ 
+                                
+                 for(var i = 0;i < data.length;i++) { %>
+                 
+                <tr>
+                    <td><%=data[i].projid%></td>
+                    <td><%=data[i].projname%></td>
+		    <td><%=data[i].projinfo%></td>
+                    <td><%=data[i].starteddate%></td>
+		    <td><%=data[i].currentstatus%></td>
+                    <td>
+                        <a class="a-inside rel" href="../projects/releases/<%=data[i].projid%>">Releases</a>
+			<br/>   
+			<br/>
+                        <a class="a-inside edit" href="../projects/edit/<%=data[i].projid%>">Edit</a>    
+			<br/>   
+			<br/>                   
+                        <a class="a-inside delete" href="../projects/delete/<%=data[i].projid%>" onclick="return confirm('Are you sure you want to delete this Project?');" >Delete</a>                        
+                    </td>
+                </tr>
+            <% }
+            
+             }else{ %>
+                 <tr>
+                    <td colspan="5">No projects as of now!</td>
+                 </tr>
+            <% } %>
+                
+                              
+                
+            </table>
+         </div>
+        </div>
+        
+<%- include layouts/footer.ejs %>
